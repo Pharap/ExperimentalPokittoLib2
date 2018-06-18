@@ -1,7 +1,10 @@
+#include "Core.h"
+
+
+
+
 
 #include <ctime>
-
-
 
 // PokittoHW.cpp
 uint32_t Pokitto::Core::getRandomSeed(void)

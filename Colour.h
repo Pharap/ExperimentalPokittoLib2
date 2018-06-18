@@ -125,14 +125,14 @@ namespace Pokitto
 	}
 	
 	template< size_t size >
-	void interpolateArray(ColourRgb565 (&destination)[size], const ColourRgb565 (&source0)[size], const ColourRgb565 (&source1)[size], uint8_t factor)
+	void interpolateColourArray(ColourRgb565 (&destination)[size], const ColourRgb565 (&source0)[size], const ColourRgb565 (&source1)[size], uint8_t factor)
 	{
 		for(size_t index = 0; index < size; ++index)
 			destination[index] = interpolate(source0[index], source1[index], factor);
 	}
 	
 	template< size_t destinationSize, size_t size0, size_t size1 >
-	void interpolateArray(ColourRgb565 (&destination)[destinationSize], const ColourRgb565 (&source0)[size0], const ColourRgb565 (&source1)[size1], uint8_t factor)
+	void interpolateColourArray(ColourRgb565 (&destination)[destinationSize], const ColourRgb565 (&source0)[size0], const ColourRgb565 (&source1)[size1], uint8_t factor)
 	{
 		#if (__cplusplus > 201402L)
 		// Cannot assume constexpr std::min unless C++14 is guaranteed
