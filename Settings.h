@@ -2,6 +2,8 @@
 
 #include <cstdint>
 
+#include "BoardRevision.h"
+
 namespace Pokitto
 {
 	struct Settings
@@ -28,10 +30,12 @@ namespace Pokitto
 		static constexpr uint32_t ConsoleInterval = 1000;
 	
 	#if defined(PROJECT_BOARD_REVISION)
-		static constexpr uint32_t BoardRevision = static_cast<uint32_t>(PROJECT_BOARD_REVISION);
+		static constexpr uint32_t BoardRevisionNumber = static_cast<uint32_t>(PROJECT_BOARD_REVISION);
 	#else
-		static constexpr uint32_t BoardRevision = 2;
+		static constexpr uint32_t BoardRevisionNumber = 2;
 	#endif
+	
+		using BoardRevision = BoardRevision<BoardRevisionNumber>;
 
 	#if defined(PROJECT_ENABLE_LOGO)
 		static constexpr bool EnableLogo = static_cast<bool>(PROJECT_ENABLE_LOGO);
@@ -69,5 +73,7 @@ namespace Pokitto
 		static constexpr bool EnableGBSound = false;
 	#endif
 
+	
+	
 	};
 }
